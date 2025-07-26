@@ -1,0 +1,30 @@
+import React from 'react';
+
+const styles = {
+  ImageContainer: {
+    top: '36px',
+    left: '-15px',
+    width: '1455px',
+    height: '796px',
+    borderRadius: '8px',
+    backgroundImage: 'url(./image.png)',
+    backgroundPosition: 'center center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  },
+};
+
+const defaultProps = {
+  image: 'https://assets.api.uizard.io/api/cdn/stream/dbc1f046-eff5-4dd4-b103-c93ca9bca13e.png',
+}
+
+const Image = (props) => {
+  return (
+    <div style={{
+      ...styles.ImageContainer,
+      backgroundImage: `url(${props.image ?? defaultProps.image})`,
+    }} />
+  );
+};
+
+export default Image;

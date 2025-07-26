@@ -1,0 +1,252 @@
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  direction: rtl;
+  overflow: hidden;
+}
+
+/* Main Container */
+.app-container {
+  height: 100vh;
+  width: 100vw;
+  /* גרדיאנט מהתמונה */
+  background: linear-gradient(135deg,
+    #0d1421 0%,
+    #1e3a5f 25%,
+    #2d1b69 50%,
+    #8b2893 75%,
+    #c7395f 100%
+  );
+  display: flex;
+  flex-direction: column;
+}
+
+/* כותרת עליונה */
+.app-header {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* לוגו CARDZ - משמאל */
+.logo-section {
+  flex: 1;
+  text-align: left;
+}
+
+.logo-placeholder {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00bcd4;
+  text-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+  letter-spacing: 2px;
+}
+
+.logo-image {
+  height: 100px;
+  width: auto;
+  max-width: 300px;
+  object-fit: contain;
+}
+
+/* פרטי בית העסק - מימין */
+.business-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+}
+
+.business-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+}
+
+.business-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* פריסה מרכזית */
+.main-layout {
+  flex: 1;
+  display: flex;
+  height: calc(100vh - 70px);
+  direction: rtl;
+}
+
+/* תפריט צד - מימין בRTL ועד לקצה המסך */
+.sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+  border-left: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -2px 0 20px rgba(0, 0, 0, 0.3);
+  /* מגיע עד לקצה המסך - גם עליון */
+  margin: 0;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.sidebar-nav {
+  padding: 90px 0 1rem 0; /* רווח עבור הכותרת */
+  flex: 1;
+}
+
+/* פריטי תפריט */
+.menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border: none;
+  background: transparent;
+  color: #cccccc;
+  text-align: right;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #2a2a2a;
+  position: relative;
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  transform: translateX(-3px);
+}
+
+.menu-item.active {
+  background: linear-gradient(90deg, rgba(0, 188, 212, 0.2), rgba(0, 188, 212, 0.1));
+  color: #00bcd4;
+  border-right: 3px solid #00bcd4;
+}
+
+.menu-icon {
+  font-size: 1.2rem;
+  min-width: 24px;
+}
+
+.menu-label {
+  flex: 1;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.submenu-arrow {
+  font-size: 0.8rem;
+  color: #888;
+  transition: transform 0.2s ease;
+}
+
+/* תת-תפריט */
+.submenu {
+  background: rgba(0, 0, 0, 0.3);
+  border-right: 2px solid #333;
+}
+
+.submenu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 2rem 0.8rem 1.5rem;
+  border: none;
+  background: transparent;
+  color: #aaa;
+  text-align: right;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.submenu-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: white;
+}
+
+.submenu-item.active {
+  background: rgba(0, 188, 212, 0.1);
+  color: #00bcd4;
+}
+
+.submenu-label {
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+/* תוכן מרכזי - משמאל בRTL */
+.main-content {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 12px 0 0 0;
+  margin: 1rem 0 1rem 280px; /* מרווח מהתפריט */
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.content-area {
+  padding: 2rem;
+  height: 100%;
+  overflow-y: auto;
+  color: white;
+}
+
+.content-area h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  background: linear-gradient(45deg, #00bcd4, #e91e63);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.content-area p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #cccccc;
+}
+
+/* רספונסיבי */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 240px;
+  }
+
+  .main-content {
+    margin: 1rem 0 1rem 240px;
+  }
+
+  .app-header {
+    padding: 0 1rem;
+  }
+
+  .logo-image {
+    height: 40px;
+    max-width: 120px;
+  }
+} 
