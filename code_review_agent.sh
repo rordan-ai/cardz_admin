@@ -6,10 +6,22 @@ REVIEW_LOG="/tmp/code_review_$(date +%Y%m%d_%H%M%S).log"
 
 echo "=== CODE REVIEW STARTED $(date) ===" > $REVIEW_LOG
 echo "Commit Hash: $COMMIT_HASH" >> $REVIEW_LOG
+echo "Reviewer: Context & Quality Agent" >> $REVIEW_LOG
+echo "Rules: .cursor/rules/rules_contextandquality_agent.md" >> $REVIEW_LOG
 echo "=====================================" >> $REVIEW_LOG
 
+# 0. בדיקת כללי הסוכן
+echo "0. כללי סוכן איכות:" >> $REVIEW_LOG
+if [ -f ".cursor/rules/rules_contextandquality_agent.md" ]; then
+    echo "✅ מסמך תפקידים נמצא" >> $REVIEW_LOG
+    echo "📋 תחומי אחריות:" >> $REVIEW_LOG
+    grep -A 4 "תחומי אחריות:" .cursor/rules/rules_contextandquality_agent.md | tail -4 >> $REVIEW_LOG
+else
+    echo "⚠️ מסמך תפקידים לא נמצא" >> $REVIEW_LOG
+fi
+
 # 1. בדיקת התאמה לאפיון
-echo "1. בדיקת התאמה לאפיון:" >> $REVIEW_LOG
+echo -e "\n1. בדיקת התאמה לאפיון:" >> $REVIEW_LOG
 echo "- נבדקים כל הקבצים שנשתנו" >> $REVIEW_LOG
 
 # רשימת קבצים שנשתנו בcommit
